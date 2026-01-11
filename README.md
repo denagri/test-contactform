@@ -3,6 +3,8 @@
 ・git clone git@github.com:denagri/test-contactform.git
 ・docker-compose up -d --build
 #使用技術(実行環境)
+・php 8.4.14
+・laravel 8.83.8
 
 #ER図
 
