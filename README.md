@@ -7,6 +7,8 @@
 ・laravel 8.83.8
 
 #ER図
+<img width="981" height="659" alt="スクリーンショット 2026-01-12 165001" src="https://github.com/user-attachments/assets/0084c462-29a4-4fbf-831b-795cea668898" />
+
 
 #URL
 ・お問い合わせフォーム入力ページ　http://localhost/
