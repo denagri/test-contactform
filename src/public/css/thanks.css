@@ -1,0 +1,31 @@
+.thanks__content{
+    max-width: 1230px;
+    margin: 0 auto;
+    /*background-image:;*/
+
+}
+.thanks__heading{
+    width: 70%;
+}
+h2{
+    width: 100%;
+    color: #8b7969;
+    padding:30px;
+    text-align: center;
+    font-weight: bold;
+}
+.form__button{
+    width: 20%;
+}
+.form__button-home{
+    width: 100%;
+}
+.form__button-home--submit{
+    color: #ffffff;
+    background-color: #82756b;
+    border: 1px solid #82756b;
+    border-radius: 3px;
+    font-family: Courier;
+    padding: 8px;
+    cursor: pointer;
+}

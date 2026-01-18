@@ -1,0 +1,158 @@
+.header{
+    max-width: 1230px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e7e2de;
+}
+.header__inner{
+    background-color: #ffffff;
+    /* border-bottom: 1px solid #e7e2de; */
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+    margin-left: auto;
+}
+.header__logo{
+    color: #8b7969;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Courier;
+}
+.logout-form__button{
+    padding: 15px;
+}
+.logout-form__button-submit{
+    color: #dbc9b9;
+    background: #f6f6f6;
+    border: 1px solid #dbc9b9;
+    border-radius: 3px;
+    padding: 8px;
+}
+.contact__title{
+    text-align: center;
+}
+.contact__form-title{
+    font-size: 30px;
+    text-decoration: none;
+    color: #8b7969;
+    font-family: Courier;
+    font-weight: bold;
+}
+main{
+    background-color: #ffffff;
+}
+.contact{
+    width: 80%;
+    margin: 0 auto;
+}
+.contact_admin{
+    width: 100%;
+}
+.form__group{
+    display: flex;
+    justify-content: flex-end;
+}
+.form__group-contact{
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.textbox{
+    border: none;
+    border-radius: 3px;
+    color: #8b7969;
+    background-color: #f4f4f4;
+    padding: 10px 7px;
+    
+}
+input::placeholder{
+    color: #8b7969;
+}
+input{
+    color: #000000;
+}
+select:invalid{
+    color: #8b7969;
+}
+select option{
+    color: black;
+}
+select option:first-child{
+    color: #8b7969;
+}
+.search-form__button{
+    margin-right: 10px;
+}
+.search-form__button-submit{
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #82756b;
+    padding: 10px 30px;
+    border-radius: 3px;
+    border: none;
+}
+.reset-form__button-submit{
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #d9c6b5;
+    padding: 10px 30px;
+    border-radius: 3px;
+    border: none;
+}
+.form--group{
+    justify-content: space-between;
+    display: flex;
+}
+.form__group-item{
+    margin: 10px;
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+.export-form__button{
+    width: 100%;
+}
+.export-form__button-submit{
+    background-color: #f1ece6;
+    color: #8b7969;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.form__group-jamp{
+    display: flex;
+}
+.jamp-form__button-submit{
+    border: 1px solid #f9f9f9;
+    color: #8b7969;
+    background-color: #ffffff;
+    font-weight: bold;
+    padding: 8px;
+}
+.admin__table{
+    border: 1px solid #f9f9f9;
+    width: 100%;
+}
+th{
+    color: #ffffff;
+    background-color: #82756b;
+    padding: 10px;
+    border-bottom: #f9f9f9;
+}
+
+td{
+    
+    color: #8b7969;
+    padding: 10px;
+    text-align: center;
+}
+.table__group-item{
+    margin: 8px;
+}
+.table-form__button-submit{
+    border: 1px solid #e7e2de;
+    color: #e7e2de;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 5px 10px;
+    background-color: #fcfcfc;
+}
