@@ -35,7 +35,7 @@ Route::post('/logout',function(Request $request){
     $request->session()->regenerateToken();
     return redirect('/');
 })->name('logout');
-Route::post('/delete',[AdminController::class,'']);
-Route::get('/search',[AdminController::class,'']);
-Route::get('/reset',[AdminController::class,'']);
+Route::post('/delete',[AdminController::class,'destroy']);
+Route::get('/search',[AdminController::class,'search']);
+Route::get('/reset',[AdminController::class,'reset']);
 Route::post('/export',[AdminController::class,'']);

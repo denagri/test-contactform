@@ -36,7 +36,7 @@
                         <div class="form__group">
                             <div class="form__group-contact">
                                 <div class="form__input">
-                                    <input type="text" name="name" placeholder="名前やメールアドレスを入力してください" class="textbox" />
+                                    <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" class="textbox" />
                                 </div>
                                 <div class="form__error">
                                 <!--バリデーション機能を実装したら記述します。-->
@@ -99,14 +99,14 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="form__group-jamp">
-                                <form class="jamp-form" action="" method="post" >
-                                    <div class="jamp-form__button">
-                                        <button class="jamp-form__button-submit" type="submit"><</button>
+                            <div class="form__group-jump">
+                                <form class="jump-form" action="" method="post" >
+                                    <div class="jump-form__button">
+                                        <button class="jump-form__button-submit" type="submit"><</button>
                                     </div>
                                 </form>
-                                <form class="jamp-form" action="" method="post" >
-                                    <div class="jamp-form__button">
+                                <form class="jump-form" action="" method="post" >
+                                    <div class="jump-form__button">
                                         <ul>
                                             <li>1</li>
                                             <li><a href="page/2">2</a></li>
@@ -116,32 +116,32 @@
                                         </ul>
                                     </div>
                                 </form>
-                                        <!--<button class="jamp-form__button-submit" type="submit">1</button>
+                                        <!--<button class="jump-form__button-submit" type="submit">1</button>
                                     </div>
                                 </form>
-                                <form class="jamp-form" action="" method="post" >
-                                    <div class="jamp-form__button">
-                                        <button class="jamp-form__button-submit" type="submit">2</button>
+                                <form class="jump-form" action="" method="post" >
+                                    <div class="jump-form__button">
+                                        <button class="jump-form__button-submit" type="submit">2</button>
                                     </div>
                                 </form>
-                                <form class="jamp-form" action="" method="post" >
-                                    <div class="jamp-form__button">
-                                        <button class="jamp-form__button-submit" type="submit">3</button>
+                                <form class="jump-form" action="" method="post" >
+                                    <div class="jump-form__button">
+                                        <button class="jump-form__button-submit" type="submit">3</button>
                                     </div>
                                 </form>
-                                <form class="jamp-form" action="" method="post" >
-                                    <div class="jamp-form__button">
-                                        <button class="jamp-form__button-submit" type="submit">4</button>
+                                <form class="jump-form" action="" method="post" >
+                                    <div class="jump-form__button">
+                                        <button class="jump-form__button-submit" type="submit">4</button>
                                     </div>
                                 </form>
-                                <form class="jamp-form" action="" method="post" >
-                                    <div class="jamp-form__button">
-                                        <button class="jamp-form__button-submit" type="submit">5</button>
+                                <form class="jump-form" action="" method="post" >
+                                    <div class="jump-form__button">
+                                        <button class="jump-form__button-submit" type="submit">5</button>
                                     </div>
                                 </form>
-                                <form class="jamp-form" action="" method="post" >
-                                    <div class="jamp-form__button">
-                                        <button class="jamp-form__button-submit" type="submit">></button>
+                                <form class="jump-form" action="" method="post" >
+                                    <div class="jump-form__button">
+                                        <button class="jump-form__button-submit" type="submit">></button>
                                     </div>
                                 </form>-->
                             </div>

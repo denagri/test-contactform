@@ -16,7 +16,7 @@ laravel環境構築
 * laravel 8.83.8
 
 # ER図
-<img width="750" height="671" alt="スクリーンショット 2026-01-18 080538" src="https://github.com/user-attachments/assets/e0848d08-5b47-4028-a5f0-736ee1911da6" />
+![alt text](<スクリーンショット 2026-01-25 163940-1.png>)
 
 
 # URL

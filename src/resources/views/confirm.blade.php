@@ -98,7 +98,6 @@
             <div class="form__button-submit">
                 <input class="form__button--submit" type="submit"value="送信" name="send">
                 <input class="form__button--correction" type="submit" value="修正" name="back">
-                <!--<button onclick="history.back();">修正</button>-->
             </div>
         </div>
         </form>

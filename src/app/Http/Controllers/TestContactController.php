@@ -26,6 +26,4 @@ class TestContactController extends Controller
         Contact::create($contact);
         return view('thanks');
     }
-
-
 }

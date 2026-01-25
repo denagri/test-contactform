@@ -118,10 +118,10 @@ select option:first-child{
     cursor: pointer;
     padding: 5px 10px;
 }
-.form__group-jamp{
+.form__group-jump{
     display: flex;
 }
-/*.jamp-form__button-submit*/
+/*.jump-form__button-submit*/
 li{
     border: 1px solid #f9f9f9;
     color: #8b7969;

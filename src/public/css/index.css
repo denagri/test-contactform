@@ -64,6 +64,7 @@
     border: none;
     border-radius: 3px;
     padding: 5px;
+    color: #8b7969;
 }
 input::placeholder,textarea::placeholder{
     color: #8b7969;

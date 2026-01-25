@@ -54,7 +54,7 @@
                     <div class="form__group-content">
                         <div class="form__input">
                             <div class="form__input-gender--item">
-                              <input type="radio" id="man" name="gender" value="1" checked>
+                              <input type="radio" id="man" name="gender" value="1" >
                               <label for="man">男性</label>
                             </div>
                             <div class="form__input-gender--item">
@@ -86,7 +86,8 @@
                         <div class="form__error">
                          @error('email')
                          {{ $message}}
-                         @enderror                        </div>
+                         @enderror
+                        </div>
                     </div>
                 </div>
 
@@ -150,7 +151,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input">
-                            <select id="kinds" name="kinds" class="textbox" required >
+                            <select id="kinds" name="kinds" class="textbox" >
                                 <option value="" disabled selected>選択してください</option>
                                 <option value="商品のお届けについて">商品のお届けについて</option>
                                 <option value="商品の交換について">商品の交換について</option>
