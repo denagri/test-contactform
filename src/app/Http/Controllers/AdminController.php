@@ -8,7 +8,7 @@ class AdminController extends Controller
 {
    public function index()
    {
-    return view('admin');
+   $categories = Category::simplePaginate(4);
+   return view('admin',['categories'=> $categories]);
    }
-   
 }

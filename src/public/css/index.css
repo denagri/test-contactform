@@ -46,7 +46,6 @@
 }
 .form__group-content{
     display: flex;
-    
 }
 .form__input{
     display: flex;
@@ -76,6 +75,7 @@ input,textarea{
     padding-right: 50px;
     color: #8b7969;
 }
+
 select:invalid{
     color: #8b7969;
 }

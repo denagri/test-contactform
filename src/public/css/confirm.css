@@ -56,38 +56,39 @@
     border: none;
     color: #8b7969;
 }
+.confirm-table__gender{
+    display: none;
+}
+.confirm-table__text-gender{
+    color: #8b7969;
+}
 .form__button{
-    display: flex;
     margin: 0 auto;
     width: 30%;
     justify-content: space-between;
 }
-.form__button input{
-    width: 100%;
-}
 .form__button-submit{
-    width: 120px;
-    margin-right: 10px;
-    height: 40px;
+    display: flex;
 }
 .form__button--submit{
+    width:120px;
+    margin-right: 10px;
+    height:40px;
     color: #ffffff;
     background-color: #82756b;
     border: 1px solid #82756b;
     border-radius: 3px;
     text-align: center;
     cursor: pointer;
-    width: 100%;
-    height: 100%;
 }
-.form__button-correction{
+/*.form__button-correction{
     width: 120px;
     height: 40px;
-}
+}*/
 .form__button--correction{
+    width: 120px;
+    height: 40px;
     color: #82756b;
     cursor: pointer;
     border: none;
-    width: 100%;
-    height: 100%;
 }

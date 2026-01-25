@@ -17,7 +17,8 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             //$table->foreignId('category_id')->constrained();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('gender');
             $table->string('email');
             $table->integer('tel');
@@ -27,7 +28,7 @@ class CreateContactsTable extends Migration
             $table->text('detail');
             $table->timestamps();
         });
-        Schema::create('register', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             //$table->foreignId('category_id')->constrained();
             $table->string('name');
@@ -35,11 +36,10 @@ class CreateContactsTable extends Migration
             $table->string('password');
             $table->timestamps();
         });
-        Schema::create('login', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
             //$table->foreignId('category_id')->constrained();
-            $table->string('email');
-            $table->string('password');
+            $table->string('content');
             $table->timestamps();
         });
     }

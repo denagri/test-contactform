@@ -1,31 +1,32 @@
 # laravel-docker-template
-#環境構築
+# 環境構築
 Dockerビルド
-・git clone git@github.com:denagri/test-contactform.git
-・docker-compose up -d --build
+* git clone git@github.com:denagri/test-contactform.git
+* docker-compose up -d --build
 laravel環境構築
-・docker-compose exec php bash
-・composer install
-・cp .env.example.env, 環境変数を適宜変更
-・php artisan key:generate
-・php artisan migrate
-・php artisan db:seed
+* docker-compose exec php bash
+* composer install
+* cp .env.example.env, 環境変数を適宜変更
+* php artisan key:generate
+* php artisan migrate
+* php artisan db:seed
 
-#使用技術(実行環境)
-・php 8.4.14
-・laravel 8.83.8
+# 使用技術(実行環境)
+* php 8.4.14
+* laravel 8.83.8
 
-#ER図
+# ER図
 <img width="750" height="671" alt="スクリーンショット 2026-01-18 080538" src="https://github.com/user-attachments/assets/e0848d08-5b47-4028-a5f0-736ee1911da6" />
 
 
-#URL
-・お問い合わせフォーム入力ページ　http://localhost/
-・お問い合わせフォーム確認ページ　http://localhost/comfirm
-・サンクスページ　http://localhost/thanks
-・管理画面　http://localhost/admin
-
-・ユーザー登録　http://localhost/register
-・ログイン　http://localhost/login
-
-　
+# URL
+* お問い合わせフォーム入力ページhttp://localhost/
+* お問い合わせフォーム確認ページhttp://localhost/comfirm
+* サンクスページ
+http://localhost/thanks
+* 管理画面
+http://localhost/admin
+* ユーザー登録
+http://localhost/register
+* ログイン
+http://localhost/login

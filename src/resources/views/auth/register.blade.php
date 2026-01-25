@@ -31,7 +31,7 @@
             </a>
         </div>
 
-        <form class="form" action="/admin" method="post">
+        <form class="form" action="/register" method="get">
          @csrf
           <div class="register">
             <div class="register__form">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input">
-                            <input type="text" name="name" placeholder="例:山田 太郎" class="textbox" value="{{old('name') }}"/>
+                            <input type="text" name="name" placeholder="例:山田 太郎" class="textbox" value="{{old('name') }}" />
                         </div>
                         <div class="form__error">
                          @error('name')
@@ -57,7 +57,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input">
-                            <input type="email" name="email" placeholder="例:test@example.com" class="textbox" value="{{old('email') }}"/>
+                            <input type="email" name="email" placeholder="例:test@example.com" class="textbox" value="{{old('email') }}" />
                         </div>
                         <div class="form__error">
                          @error('email')
@@ -73,7 +73,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input">
-                            <input type="text" name="password" placeholder="例:coachtech1306" class="textbox" value="{{old('password') }}"/>
+                            <input type="text" name="password" placeholder="例:coachtech1306" class="textbox" value="{{old('password') }}" />
                         </div>
                         <div class="form__error">
                          @error('password')

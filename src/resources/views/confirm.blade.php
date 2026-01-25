@@ -30,14 +30,27 @@
             <tr class="confirm-table__row">
               <th class="confirm-table__header">お名前</th>
               <td class="confirm-table__text">
-                <input type="text" name="name" value="{{ $contact['name'] }}" readonly/>
-                <input type="text" name="name" value="{{ $contact['name'] }}" readonly/>
+                <input type="text" name="first_name" value="{{ $contact['first_name'] }}" readonly/>
+                <input type="text" name="last_name" value="{{ $contact['last_name'] }}" readonly/>
               </td>
             </tr>
              <tr class="confirm-table__row">
               <th class="confirm-table__header">性別</th>
               <td class="confirm-table__text">
-                <input type="hidden" name="gender" value="{{ $contact['gender'] }}" />
+                <div class="confirm-table__gender">
+                  <input type="hidden" name="gender" value="{{ $contact['gender'] }}" />
+                </div>
+                <div class="confirm-table__text-gender">
+                  <?php
+                  if($contact['gender']=='1'){
+                    echo '男性';
+                  }else if ($contact['gender']=='2'){
+                    echo '女性';
+                  }else if ($contact['gender']=='3'){
+                    echo 'その他';
+                  }
+                  ?>
+                </div>
               </td>
             </tr>
             <tr class="confirm-table__row">
@@ -70,7 +83,7 @@
             <tr class="confirm-table__row">
               <th class="confirm-table__header">お問い合わせの種類</th>
               <td class="confirm-table__text">
-                <input type="hidden" name="kinds" value="{{ $contact['kinds'] }}" readonly/>
+                <input type="text" name="kinds" value="{{ $contact['kinds'] }}" readonly/>
               </td>
             </tr>
             <tr class="confirm-table__row">
@@ -83,10 +96,9 @@
         </div>
         <div class="form__button">
             <div class="form__button-submit">
-                <button class="form__button--submit" type="submit">送信</button>
-            </div>
-            <div class="form__button-correction">
-                <button class="form__button--correction" type="submit" formaction="/">修正</button>
+                <input class="form__button--submit" type="submit"value="送信" name="send">
+                <input class="form__button--correction" type="submit" value="修正" name="back">
+                <!--<button onclick="history.back();">修正</button>-->
             </div>
         </div>
         </form>

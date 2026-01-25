@@ -14,7 +14,7 @@
            <a class="header__logo">
             FashionablyLate
            </a>
-           <form class="register-form" action="/register" method="post" >
+           <form class="register-form" action="/register" method="get" >
             @csrf
                 <div class="register-form__button">
                     <button class="register-form__button-submit" type="submit">register</button>
@@ -29,7 +29,7 @@
              Login
             </a>
         </div>
-        <form class="form" action="/admin" method="post">
+        <form class="form" action="/login" method="post">
          @csrf
            <div class="login">
             <div class="login__form">
@@ -43,7 +43,7 @@
                         </div>
                         <div class="form__error">
                          @error('email')
-                         {{ $email }}
+                         {{ $email ?? ''}}
                          @enderror
                         </div>
                     </div>

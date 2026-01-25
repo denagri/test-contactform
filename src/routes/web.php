@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestContactController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -21,13 +20,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/',[TestContactController::class,'index']);
-Route::get('/confirm',[TestContactController::class,'confirm']);
 Route::post('/confirm',[TestContactController::class,'confirm']);
-Route::get('/contacts',[TestContactController::class,'store']);
 Route::post('/contacts',[TestContactController::class,'store']);
-Route::get('/register',[RegisterController::class,'index']);
-Route::post('/register',[RegisterController::class,'index']);
-Route::get('/login',[LoginController::class,'index']);
-Route::post('/login',[LoginController::class,'index']);
-Route::get('/admin',[AdminController::class,'index']);
-Route::post('/admin',[AdminController::class,'index']);
+Route::get('/admin',[AuthController::class,'index']);
+Route::middleware('auth')->group(function(){
+    Route::get('/admin',[AdminController::class,'index']);
+});
+
+/**Route::post('/admin',[AdminController::class,'index']);**/
+
+Route::post('/logout',function(Request $request){
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('/');
+})->name('logout');
+Route::post('/delete',[AdminController::class,'']);
+Route::get('/search',[AdminController::class,'']);
+Route::get('/reset',[AdminController::class,'']);
+Route::post('/export',[AdminController::class,'']);

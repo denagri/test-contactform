@@ -107,7 +107,16 @@
                                 </form>
                                 <form class="jamp-form" action="" method="post" >
                                     <div class="jamp-form__button">
-                                        <button class="jamp-form__button-submit" type="submit">1</button>
+                                        <ul>
+                                            <li>1</li>
+                                            <li><a href="page/2">2</a></li>
+                                            <li><a href="page/3">3</a></li>
+                                            <li><a href="page/4">4</a></li>
+                                            <li><a href="page/5">5</a></li>
+                                        </ul>
+                                    </div>
+                                </form>
+                                        <!--<button class="jamp-form__button-submit" type="submit">1</button>
                                     </div>
                                 </form>
                                 <form class="jamp-form" action="" method="post" >
@@ -134,9 +143,9 @@
                                     <div class="jamp-form__button">
                                         <button class="jamp-form__button-submit" type="submit">></button>
                                     </div>
-                                </form>
+                                </form>-->
                             </div>
-                        </div>                        </div>
+                        </div>
                     </div>
                 </form>
                 <table class="admin__table">
