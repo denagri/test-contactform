@@ -14,7 +14,7 @@
            <a class="header__logo">
             FashionablyLate
            </a>
-           <form class="login-form" action="/login" method="post" >
+           <form class="login-form" action="/login" method="get" >
             @csrf
                 <div class="login-form__button">
                     <button class="login-form__button-submit" type="submit">login</button>
@@ -31,7 +31,7 @@
             </a>
         </div>
 
-        <form class="form" action="/register" method="get">
+        <form class="form" action="/register" method="post">
          @csrf
           <div class="register">
             <div class="register__form">

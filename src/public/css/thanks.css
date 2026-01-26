@@ -1,11 +1,7 @@
 .thanks__content{
     max-width: 1230px;
-    margin: 0 auto;
+    margin: 15% auto;
     /*background-image:;*/
-
-}
-.thanks__heading{
-    width: 70%;
 }
 h2{
     width: 100%;
@@ -15,10 +11,11 @@ h2{
     font-weight: bold;
 }
 .form__button{
-    width: 20%;
+    max-width: 1230px;
+    text-align: center;
 }
 .form__button-home{
-    width: 100%;
+    display: inline;
 }
 .form__button-home--submit{
     color: #ffffff;

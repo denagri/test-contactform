@@ -11,15 +11,14 @@
 <body>
    <main>
     <div class="thanks__content">
-      <div class="thanks__heading">
-        <h2>お問い合わせありがとうございました
-        </h2>
+      <div class="thanks__title">
+        <h2>お問い合わせありがとうございました</h2>
       </div>
-    </div>
-    <div class="form__button">
-        <div class="form__button-home">
-                <button class="form__button-home--submit" type="submit">HOME</button>
-        </div>
+      <div class="form__button">
+        <a href="{{route('home')}}" class="form__button-home" method="get" >
+          <button class="form__button-home--submit" type="submit" >HOME</button>
+        </a>
+      </div>
     </div>
    </main>
 </body>

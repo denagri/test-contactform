@@ -107,16 +107,7 @@
                                 </form>
                                 <form class="jump-form" action="" method="post" >
                                     <div class="jump-form__button">
-                                        <ul>
-                                            <li>1</li>
-                                            <li><a href="page/2">2</a></li>
-                                            <li><a href="page/3">3</a></li>
-                                            <li><a href="page/4">4</a></li>
-                                            <li><a href="page/5">5</a></li>
-                                        </ul>
-                                    </div>
-                                </form>
-                                        <!--<button class="jump-form__button-submit" type="submit">1</button>
+                                        <button class="jump-form__button-submit" type="submit">1</button>
                                     </div>
                                 </form>
                                 <form class="jump-form" action="" method="post" >
@@ -143,13 +134,12 @@
                                     <div class="jump-form__button">
                                         <button class="jump-form__button-submit" type="submit">></button>
                                     </div>
-                                </form>-->
+                                </form>
                             </div>
                         </div>
                     </div>
                 </form>
                 <table class="admin__table">
-                    
                     <tr>
                             <th>お名前</th>
                             <th>性別</th>

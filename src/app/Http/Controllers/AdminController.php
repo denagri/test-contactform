@@ -9,8 +9,9 @@ class AdminController extends Controller
 {
    public function index()
    {
-      $categories = Category::simplePaginate(4);
-      return view('admin',['categories'=> $categories]);
+      $categories = Contact::simplePaginate(4);
+      return view('admin');
+      /*return view('admin',['contacts'=>$contacts]);*/
    }
    public function destroy(Request $request)
    {
