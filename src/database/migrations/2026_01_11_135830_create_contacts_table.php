@@ -19,11 +19,9 @@ class CreateContactsTable extends Migration
             //$table->foreignId('category_id')->constrained();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('gender');
+            $table->tinyInteger('gender')->default(3);
             $table->string('email');
-            $table->integer('tel1');
-            $table->integer('tel2');
-            $table->integer('tel3');
+            $table->integer('tell');
             $table->string('address');
             $table->string('building')->nullable();
             $table->string('kinds');

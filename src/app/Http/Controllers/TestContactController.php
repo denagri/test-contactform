@@ -22,7 +22,8 @@ class TestContactController extends Controller
         if ($request->has('back')) {
             return redirect('/')->withInput();
         }
-        $contact= $request->only(['first_name','last_name','gender','email','tel1','tel2','tel3','address','building','kinds','detail']);
+        $request['tell'] = $request->tel_1 . $request->tel_2 . $request->tel_3;
+        $contact= $request->only(['first_name','last_name','gender','email','tell','address','building','kinds','detail']);
         Contact::create($contact);
         return view('thanks');
     }
