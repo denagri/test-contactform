@@ -25,8 +25,8 @@ class IndexRequest extends FormRequest
     {
         return [
             'first_name','last_name'=>['string','max:8'],
-            'first_name'=>['required'],
             'last_name'=>['required'],
+            'first_name'=>['required'],
             'gender'=>['required'],
             'email'=>['required','email'],
             'tel1','tel2','tel3'=>['required','numeric','digits_between:2,5'],
@@ -38,12 +38,12 @@ class IndexRequest extends FormRequest
     public function messages()
     {
         return[
-            'first_name.required'=>'姓を入力してください',
-            'first_name.string'=>'名前を文字列で入力してください',
-            'first_name.max'=>'名字を8文字以下で入力してください',
-            'last_name.required'=>'名を入力してください',
+            'last_name.required'=>'姓を入力してください',
             'last_name.string'=>'名前を文字列で入力してください',
-            'last_name.max'=>'名前を8文字以下で入力してください',
+            'last_name.max'=>'名字を8文字以下で入力してください',
+            'first_name.required'=>'名を入力してください',
+            'first_name.string'=>'名前を文字列で入力してください',
+            'first_name.max'=>'名前を8文字以下で入力してください',
             'gender.required'=>'性別を選択してください',
             'email.required'=>'メールアドレスを入力してください',
             'email.email'=>'メールアドレスはメール形式で入力してください',

@@ -32,14 +32,14 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input">
-                            <input type="text" name="first_name" placeholder="例:山田" class="textbox" value="{{old('first_name') }}"/>
-                            <input type="text" name="last_name" placeholder="例:太郎" class="textbox" value="{{old('last_name') }}"/>
+                            <input type="text" name="last_name" placeholder="例:山田" class="textbox" value="{{old('last_name') }}"/>
+                            <input type="text" name="first_name" placeholder="例:太郎" class="textbox" value="{{old('first_name') }}"/>
                         </div>
                         <div class="form__error">
-                        @error('first_name')
+                        @error('last_name')
                          {{ $message }}
                         @enderror
-                        @error('last_name')
+                        @error('first_name')
                          {{ $message }}
                         @enderror
                         </div>

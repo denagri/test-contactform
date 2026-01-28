@@ -24,19 +24,18 @@ class TestContactController extends Controller
         if ($request->has('back')) {
             return redirect('/')->withInput();
         }
-        $model->kinds='value';
-        $model->save();
         $request['tell'] = $request->tel1 . $request->tel2 . $request->tel3;
         Contact::create(
             $request->only([
             'category_id',
-            'first_name',
             'last_name',
+            'first_name',
             'gender',
             'email',
             'tell',
             'address',
             'building',
+            'kinds',
             'detail'
             ])
         );

@@ -30,8 +30,8 @@
             <tr class="confirm-table__row">
               <th class="confirm-table__header">お名前</th>
               <td class="confirm-table__text">
-                <input type="text" name="first_name" value="{{ $contacts['first_name'] }}" readonly/>
                 <input type="text" name="last_name" value="{{ $contacts['last_name'] }}" readonly/>
+                <input type="text" name="first_name" value="{{ $contacts['first_name'] }}" readonly/>
               </td>
             </tr>
              <tr class="confirm-table__row">
