@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 Route::get('/',[TestContactController::class,'index']);
 Route::post('/confirm',[TestContactController::class,'confirm']);
+Route::get('/confirm',[TestContactController::class,'find']);
 Route::post('/contacts',[TestContactController::class,'store']);
 Route::get('/',function(){
     return view('index');

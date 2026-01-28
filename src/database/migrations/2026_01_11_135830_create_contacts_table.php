@@ -21,14 +21,14 @@ class CreateContactsTable extends Migration
             $table->string('last_name');
             $table->tinyInteger('gender')->default(3);
             $table->string('email');
-            $table->integer('tell');
+            $table->string('tell',20);
             $table->string('address');
             $table->string('building')->nullable();
             $table->string('kinds');
             $table->text('detail');
             $table->timestamps();
         });
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
             //$table->foreignId('category_id')->constrained();
             $table->string('name');
