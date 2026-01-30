@@ -21,7 +21,7 @@ class AdminController extends Controller
    public function search(Request $request)
    {
       $keyword = $request->input('');
-      $query = Product::query();
+      $query = Contact::query();
       if(!empty($keyword)){
          $query->where('name','LIKE',"%{keyword}%");
       }

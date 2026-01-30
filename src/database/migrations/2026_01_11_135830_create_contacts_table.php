@@ -24,27 +24,7 @@ class CreateContactsTable extends Migration
             $table->string('tell',20);
             $table->string('address');
             $table->string('building')->nullable();
-            
             $table->text('detail');
-            $table->timestamps();
-        });
-        Schema::create('categories',function(Blueprint $table){
-            $table->id();
-            $table->string('kinds');
-            $table->timestamps();
-        });
-        Schema::create('admins', function (Blueprint $table) {
-            $table->id();
-            //$table->foreignId('category_id')->constrained();
-            $table->string('name');
-            $table->string('email');
-            $table->string('password');
-            $table->timestamps();
-        });
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            //$table->foreignId('category_id')->constrained();
-            $table->string('content');
             $table->timestamps();
         });
     }
