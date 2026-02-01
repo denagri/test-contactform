@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\IndexRequest;
 use App\Models\Contact;
-use App\Models\Category;
 
 
 class TestContactController extends Controller
@@ -36,14 +35,11 @@ class TestContactController extends Controller
             'tell',
             'address',
             'building',
+            'category_id',
             'detail'
             ])
         );
-        Category::create(
-            $request->only([
-                'kinds',
-            ])
-        );
+       
        return view('thanks');
     }
 }

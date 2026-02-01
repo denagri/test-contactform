@@ -151,15 +151,33 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input">
-                            <select id="kinds" name="kinds" class="textbox" >
+                            <!--<select id="category_id" name="category_id" class="textbox" >
                                 <option value="" disabled selected>選択してください</option>
                                 <option value="商品のお届けについて">商品のお届けについて</option>
                                 <option value="商品の交換について">商品の交換について</option>
                                 <option value="商品トラブル">商品トラブル</option>
                                 <option value="ショップへのお問い合わせ">ショップへのお問い合わせ</option>
                                 <option value="その他">その他</option>
-                            </select>
+                            </select>-->
+
+<?php
+$sql ="SELECT id, content FROM categories";
+$result =$conn->query($sql);
+?>
+<select name="category_id" id="category">
+    <option value="" disabled selected>選択してください</option>
+    <?php
+    if($result->num_rows>0){
+        while($row =$result->fetch_assoc()){
+            echo"<option value='" .$row['id']."'>".$row['content']."</option>";
+        }
+    }
+?>
+</select>
                         </div>
+
+
+
                         <div class="form__error">
                          @error('kinds')
                          {{ $message }}

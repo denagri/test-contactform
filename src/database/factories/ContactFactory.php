@@ -21,7 +21,7 @@ class ContactFactory extends Factory
         'tell'=>$this->faker->phoneNumber(),
         'address' =>$this->faker->address,
         'building' =>$this->faker->secondaryAddress,
-        'kinds' =>$this->faker->randomElement(['商品のお届けについて','商品の交換について','商品トラブル','ショップへのお問い合わせ','その他']),
+        'category_id' =>$this->faker->randomElement(['1','2','3','4','5']),
         'detail' =>$this->faker->paragraph(5),
         ];
     }
