@@ -59,7 +59,7 @@
 .confirm-table__gender{
     display: none;
 }
-.confirm-table__text-gender{
+.confirm-table__text-gender,.confirm-table__text-category{
     color: #8b7969;
 }
 .form__button{

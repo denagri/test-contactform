@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\IndexRequest;
 use App\Models\Contact;
+use App\Models\Category;
 
 
 class TestContactController extends Controller
@@ -11,8 +12,16 @@ class TestContactController extends Controller
     public function index()
     {
         $categories =Category::all();
+
         return view('index',compact('categories'));
     }
+
+    public function show($id)
+    {
+        $categories = Category::find($id);
+        return view('index', compact('categories'));
+    }
+
     public function confirm(IndexRequest $request)
     {
         $contacts= $request->all();
@@ -24,7 +33,7 @@ class TestContactController extends Controller
         if ($request->has('back')) {
             return redirect('/')->withInput();
         }
-        $request['tell'] = $request->tel1 . $request->tel2 . $request->tel3;
+        $request['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
         Contact::create(
             $request->only([
             'category_id',
@@ -32,14 +41,12 @@ class TestContactController extends Controller
             'first_name',
             'gender',
             'email',
-            'tell',
+            'tel',
             'address',
             'building',
-            'category_id',
             'detail'
             ])
         );
-       
        return view('thanks');
     }
 }

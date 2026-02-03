@@ -31,7 +31,7 @@ class IndexRequest extends FormRequest
             'email'=>['required','email'],
             'tel1','tel2','tel3'=>['required','numeric','digits_between:2,5'],
             'address'=>['required'],
-            'kinds'=>['required'],
+            'category_id'=>['required'],
             'detail'=>['required','max:120'],
         ];
     }
@@ -57,7 +57,7 @@ class IndexRequest extends FormRequest
             'tel3.numeric'=>'電話番号を半角数字で入力してください',
             'tel3.digits_between'=>'電話番号を5桁まで数字で入力してください',
             'address.required'=>'住所を入力してください',
-            'kinds.required'=>'お問い合わせの種類を選択してください',
+            'category_id.required'=>'お問い合わせの種類を選択してください',
             'detail.required'=>'お問い合わせ内容を入力してください',
             'detail.max'=>'お問い合わせ内容は120文字以内で入力してください',
         ];

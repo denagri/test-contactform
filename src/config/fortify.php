@@ -15,7 +15,7 @@ return [
     | guards that is already present in your "auth" configuration file.
     |
     */
-
+    
     'guard' => 'web',
 
     /*
@@ -74,7 +74,7 @@ return [
     |
     */
 
-    'home' => RouteServiceProvider::HOME,
+    'home' => '/admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -146,15 +146,15 @@ return [
 
     'features' => [
         Features::registration(),
-        Features::resetPasswords(),
+        //Features::resetPasswords(),
         // Features::emailVerification(),
-        Features::updateProfileInformation(),
-        Features::updatePasswords(),
-        Features::twoFactorAuthentication([
-            'confirm' => true,
-            'confirmPassword' => true,
-            // 'window' => 0,
-        ]),
+        //Features::updateProfileInformation(),
+        //Features::updatePasswords(),
+        //Features::twoFactorAuthentication([
+            //'confirm' => true,
+            //'confirmPassword' => true,
+            //'window' => 0,
+        //]),
     ],
 
 ];

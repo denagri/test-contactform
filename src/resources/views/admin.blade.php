@@ -57,7 +57,7 @@
                             </div>
                             <div class="form__group-contact">
                                 <div class="form__input">
-                                    <select id="kinds" name="kinds" class="textbox" >
+                                    <select id="category_id" name="category_id" class="textbox" >
                                         <option value="" selected disabled>お問い合わせの種類</option>
                                         <option value="商品のお届けについて">商品のお届けについて</option>
                                         <option value="商品の交換について">商品の交換について</option>
@@ -141,17 +141,19 @@
                 </form>
                 <table class="admin__table">
                     <tr>
-                            <th>お名前</th>
+                            <th colspan="2">お名前</th>
                             <th>性別</th>
                             <th>メールアドレス</th>
                             <th>お問い合わせの種類</th>
                             <th></th>
                     </tr>
+                @foreach ($contacts as $contact)
                     <tr>
-                        <td>山田 太郎</td>
-                        <td>男性</td>
-                        <td>text@example.com</td>
-                        <td>商品の交換について</td>
+                        <td>{{$contact->last_name}}</td>
+                        <td>{{$contact->first_name}}</td>
+                        <td>{{$contact->gender_text }}</td>
+                        <td>{{$contact->email}}</td>
+                        <td>{{$contact->category_id_text}}</td>
                         <td>
                             <div class="table__group-item">
                                 <form class="table-form" action="" method="post" >
@@ -162,51 +164,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td>山田 太郎</td>
-                        <td>男性</td>
-                        <td>text@example.com</td>
-                        <td>商品の交換について</td>
-                        <td>
-                            <div class="table__group-item">
-                                <form class="table-form" action="" method="post" >
-                                    <div class="table-form__button">
-                                        <button class="table-form__button-submit" type="submit">詳細</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>山田 太郎</td>
-                        <td>男性</td>
-                        <td>text@example.com</td>
-                        <td>商品の交換について</td>
-                        <td>
-                            <div class="table__group-item">
-                                <form class="table-form" action="" method="post" >
-                                    <div class="table-form__button">
-                                        <button class="table-form__button-submit" type="submit">詳細</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>山田 太郎</td>
-                        <td>男性</td>
-                        <td>text@example.com</td>
-                        <td>商品の交換について</td>
-                        <td>
-                            <div class="table__group-item">
-                                <form class="table-form" action="" method="post" >
-                                    <div class="table-form__button">
-                                        <button class="table-form__button-submit" type="submit">詳細</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
+                @endforeach
                 </table>
             </div>
         </div>

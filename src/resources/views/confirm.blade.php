@@ -83,7 +83,22 @@
             <tr class="confirm-table__row">
               <th class="confirm-table__header">お問い合わせの種類</th>
               <td class="confirm-table__text">
-                <input type="text" name="kinds" value="{{ $contacts['kinds'] }}" readonly/>
+                <input type="hidden" name="category_id" value="{{ $contacts['category_id'] }}" readonly/>
+                <div class="confirm-table__text-category">
+                <?php
+                  if($contacts['category_id']=='1'){
+                    echo '商品のお届けについて';
+                  }else if ($contacts['category_id']=='2'){
+                    echo '商品の交換について';
+                  }else if ($contacts['category_id']=='3'){
+                    echo '商品トラブル';
+                  }else if ($contacts['category_id']=='4'){
+                    echo 'ショップへのお問い合わせ';
+                  }else if ($contacts['category_id']=='5'){
+                    echo 'その他';
+                  }
+                  ?>
+                </div>
               </td>
             </tr>
             <tr class="confirm-table__row">

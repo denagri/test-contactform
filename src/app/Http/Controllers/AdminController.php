@@ -9,10 +9,11 @@ class AdminController extends Controller
 {
    public function index()
    {
-      $categories = Contact::simplePaginate(4);
-      return view('admin');
-      /*return view('admin',['contacts'=>$contacts]);*/
+      /*$contacts =Contact::all();*/
+      $contacts = Contact::Paginate(7);
+      return view('admin',['contacts'=>$contacts]);
    }
+
    public function destroy(Request $request)
    {
       Contact::find($request->id)->delete();
@@ -26,7 +27,7 @@ class AdminController extends Controller
          $query->where('name','LIKE',"%{keyword}%");
       }
       $products = $query->paginate(7);
-      return view('admin',compact('contacts','keyword'));
+      return view('admin',compact('products','keyword'));
    }
    public function reset()
    {

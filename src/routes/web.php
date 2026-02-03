@@ -16,16 +16,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/',[TestContactController::class,'index']);
+Route::get('/',[TestContactController::class,'index'])->name('home');
 Route::post('/confirm',[TestContactController::class,'confirm']);
 Route::get('/confirm',[TestContactController::class,'find']);
 Route::post('/contacts',[TestContactController::class,'store']);
-Route::get('/',function(){
+/*Route::get('/',function(){
     return view('index');
-})->name('home');
+})->name('home');*/
 Route::get('/admin',[AdminController::class,'index']);
 /*Route::middleware('auth')->group(function(){
     Route::get('/admin',[AdminController::class,'index']);
