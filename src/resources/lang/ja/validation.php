@@ -93,7 +93,7 @@ return [
     'not_in'               => '選択された:attributeは、有効ではありません。',
     'not_regex'            => ':attributeの形式が無効です。',
     'numeric'              => ':attributeには、数字を指定してください。',
-    'password'             => 'パスワードが正しくありません。',
+    'password'             => ':パスワードが正しくありません。',
     'present'              => ':attributeが存在している必要があります。',
     'regex'                => ':attributeには、有効な正規表現を指定してください。',
     'required'             => ':attributeは、必ず指定してください。',

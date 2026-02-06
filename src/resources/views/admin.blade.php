@@ -38,9 +38,6 @@
                                 <div class="form__input">
                                     <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" class="textbox" />
                                 </div>
-                                <div class="form__error">
-                                <!--バリデーション機能を実装したら記述します。-->
-                                </div>
                             </div>
                             <div class="form__group-contact">
                                 <div class="form__input">
@@ -51,36 +48,28 @@
                                         <option value="other">その他</option>
                                     </select>
                                 </div>
-                                <div class="form__error">
-                                <!--バリデーション機能を実装したら記述します。-->
-                                </div>
                             </div>
                             <div class="form__group-contact">
                                 <div class="form__input">
                                     <select id="category_id" name="category_id" class="textbox" >
                                         <option value="" selected disabled>お問い合わせの種類</option>
-                                        <option value="商品のお届けについて">商品のお届けについて</option>
-                                        <option value="商品の交換について">商品の交換について</option>
-                                        <option value="商品トラブル">商品トラブル</option>
-                                        <option value="ショップへのお問い合わせ">ショップへのお問い合わせ</option>
-                                        <option value="その他">その他</option>
+                                        @foreach($categories as $category)
+                                        <option value="{{ $category->id}}">@if(request('category_id')==$category->id)selected @endif
+                                        {{ $category->content }}
+                                        </option>
+                                        @endforeach
                                     </select>
-                                </div>
-                                <div class="form__error">
-                                <!--バリデーション機能を実装したら記述します。-->
                                 </div>
                             </div>
                             <div class="form__group-contact">
                                 <div class="form__input">
                                     <input type="date" name="date" placeholder="年/月/日" class="textbox" />
                                 </div>
-                                <div class="form__error">
-                                <!--バリデーション機能を実装したら記述します。-->
-                                </div>
                             </div>
                             <form class="search-form" action="/search" method="get" >
                                 @csrf
                                 <div class="search-form__button">
+                                    <input type="text" name="keyword" value="{{request('keyword') }}">
                                     <button class="search-form__button-submit" type="submit">検索</button>
                                 </div>
                             </form>
@@ -141,11 +130,11 @@
                 </form>
                 <table class="admin__table">
                     <tr>
-                            <th colspan="2">お名前</th>
-                            <th>性別</th>
-                            <th>メールアドレス</th>
-                            <th>お問い合わせの種類</th>
-                            <th></th>
+                        <th colspan="2">お名前</th>
+                        <th>性別</th>
+                        <th>メールアドレス</th>
+                        <th>お問い合わせの種類</th>
+                        <th></th>
                     </tr>
                 @foreach ($contacts as $contact)
                     <tr>
@@ -156,11 +145,9 @@
                         <td>{{$contact->category_id_text}}</td>
                         <td>
                             <div class="table__group-item">
-                                <form class="table-form" action="" method="post" >
-                                    <div class="table-form__button">
-                                        <button class="table-form__button-submit" type="submit">詳細</button>
-                                    </div>
-                                </form>
+                                <!--<form class="table-form" action="" method="post" >-->
+                                <button class="table__group-submit" type="submit">詳細</button>
+                                <!--</form>-->
                             </div>
                         </td>
                     </tr>
@@ -169,5 +156,67 @@
             </div>
         </div>
     </main>
+<!--<div class="table-form__button">-->
+<!--<button class="table-form__button-submit" type="submit">詳細</button>-->
+@if($showModal)
+<dialog id ="my-dialog">
+    <div class="modal-header">
+        <button wire:click="$set('showModal', false)">✕</button>
+    </div>
+    <div class="modal-body">
+        <table class="modal_table">
+            <tr>
+                <th>お名前</th>
+                <td>{{$contact['last_name']}}
+                    {{$contact['first_name']}}
+                </td>
+            </tr>
+            <tr>
+                <th>性別</th>
+                <td>
+                    <input type="hidden" value="{{$contact['gender']}}" />
+                    <?php
+                    if($contact['gender'] =='1'){
+                        echo '男性';
+                    }elseif($contact['gender'] =='2'){
+                        echo '女性';
+                    }elseif($contact['gender'] =='3'){
+                        echo 'その他';
+                    }
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <th>メールアドレス</th>
+                <td>{{$contact['email']}}</td>
+            </tr>
+            <tr>
+                <th>電話番号</th>
+                <td>{{$contact['tel']}}</td>
+            </tr>
+            <tr>
+                <th>住所</th>
+                <td>{{$contact['address']}}</td>
+            </tr>
+            <tr>
+                <th>建物名</th>
+                <td>{{$contact['building']}}</td>
+            </tr>
+            <tr>
+                <th>お問い合わせの種類</th>
+                <td>{{$contact['category']['content']}}</td>
+            </tr>
+            <tr>
+                <th>お問い合わせ内容</th>
+                <td>{{$contact['detail']}}</td>
+            </tr>
+        </table>
+    <div class="modal-footer justify-content-end">
+        <div class="modal__button">
+            <a class="modal__button-submit" href="/delete">削除</a>
+        </div>
+    </div>
+</dialog>
+@endif                                   <!--</div>-->
 </body>
 </html>

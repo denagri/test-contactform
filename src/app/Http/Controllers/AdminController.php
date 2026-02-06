@@ -4,33 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\Category;
 
 class AdminController extends Controller
 {
    public function index()
    {
       /*$contacts =Contact::all();*/
-      $contacts = Contact::Paginate(7);
-      return view('admin',['contacts'=>$contacts]);
-   }
-
-   public function destroy(Request $request)
-   {
-      Contact::find($request->id)->delete();
-      return redirect('/delete');
+      $contacts = Contact::with('category')->Paginate(7);
+      $categories =Category::all();
+      return view('admin',compact('contacts','categories'));
    }
    public function search(Request $request)
    {
-      $keyword = $request->input('');
-      $query = Contact::query();
-      if(!empty($keyword)){
-         $query->where('name','LIKE',"%{keyword}%");
+      if($request->has('reset')){
+         return redirect('/admin')->withInput();
       }
-      $products = $query->paginate(7);
-      return view('admin',compact('products','keyword'));
+      $query = Contact::query();
+      $query=$this->getSearchQuery($request,$query);
+
+      $contacts=$query->paginate(7);
+      $categories=Category::all();
+      return view('admin',compact('contacts','categories'));
    }
-   public function reset()
+   public function destroy(Request $request)
    {
-      return redirect('/reset')->route('admin');
+      Contact::find($request->id)->delete();
+      return redirect('/admin');
    }
 }

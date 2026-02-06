@@ -37,4 +37,7 @@ class Contact extends Model
          5=>'その他',
       ][$this->category_id]??'未設定';
     }
+    public function category(){
+      return $this->belongsTo(Category::class);
+    }
 }
