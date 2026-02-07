@@ -81,7 +81,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input">
-                            <input type="email" name="email" placeholder="例:test@example.com" class="textbox" value="{{old('email') }}"/>
+                            <input type="text" name="email" placeholder="例:test@example.com" class="textbox" value="{{old('email') }}"/>
                         </div>
                         <div class="form__error">
                          @error('email')

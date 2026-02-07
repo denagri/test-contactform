@@ -130,7 +130,7 @@
                 </form>
                 <table class="admin__table">
                     <tr>
-                        <th colspan="2">お名前</th>
+                        <th>お名前</th>
                         <th>性別</th>
                         <th>メールアドレス</th>
                         <th>お問い合わせの種類</th>
@@ -138,15 +138,14 @@
                     </tr>
                 @foreach ($contacts as $contact)
                     <tr>
-                        <td>{{$contact->last_name}}</td>
-                        <td>{{$contact->first_name}}</td>
+                        <td>{{$contact->last_name}}{{$contact->first_name}}</td>
                         <td>{{$contact->gender_text }}</td>
                         <td>{{$contact->email}}</td>
                         <td>{{$contact->category_id_text}}</td>
                         <td>
                             <div class="table__group-item">
                                 <!--<form class="table-form" action="" method="post" >-->
-                                <button class="table__group-submit" type="submit">詳細</button>
+                                <button class="table__group-submit" id="openBtn" href="{{$contact->id}}">詳細</button>
                                 <!--</form>-->
                             </div>
                         </td>
@@ -158,17 +157,19 @@
     </main>
 <!--<div class="table-form__button">-->
 <!--<button class="table-form__button-submit" type="submit">詳細</button>-->
-@if($showModal)
-<dialog id ="my-dialog">
+<dialog id =modal>
+  <div class="modal" id="{{$contact->id}}">
     <div class="modal-header">
-        <button wire:click="$set('showModal', false)">✕</button>
+        <button id="closeBtn">✕</button>
     </div>
     <div class="modal-body">
+        <form class="modal__detail-form" action="/delete" method="post">
+            @csrf
         <table class="modal_table">
             <tr>
                 <th>お名前</th>
-                <td>{{$contact['last_name']}}
-                    {{$contact['first_name']}}
+                <td>{{$contact->last_name}}
+                    {{$contact->first_name}}
                 </td>
             </tr>
             <tr>
@@ -188,35 +189,52 @@
             </tr>
             <tr>
                 <th>メールアドレス</th>
-                <td>{{$contact['email']}}</td>
+                <td>{{$contact->email}}</td>
             </tr>
             <tr>
                 <th>電話番号</th>
-                <td>{{$contact['tel']}}</td>
+                <td>{{$contact->tel}}</td>
             </tr>
             <tr>
                 <th>住所</th>
-                <td>{{$contact['address']}}</td>
+                <td>{{$contact->address}}</td>
             </tr>
             <tr>
                 <th>建物名</th>
-                <td>{{$contact['building']}}</td>
+                <td>{{$contact->building}}</td>
             </tr>
             <tr>
                 <th>お問い合わせの種類</th>
-                <td>{{$contact['category']['content']}}</td>
+                <td>{{$contact->category->content}}</td>
             </tr>
             <tr>
                 <th>お問い合わせ内容</th>
-                <td>{{$contact['detail']}}</td>
+                <td>{{$contact->detail}}</td>
             </tr>
         </table>
-    <div class="modal-footer justify-content-end">
-        <div class="modal__button">
-            <a class="modal__button-submit" href="/delete">削除</a>
-        </div>
     </div>
+    <div class="modal-footer justify-content-end">
+        <input type="hidden" name="id" value="{{ $contact->id }}">
+        <input class="modal-form__delete-btn btn" type="submit" value="削除">
+    </div>
+  </div>
 </dialog>
-@endif                                   <!--</div>-->
+
+<script>
+  const modal = document.getElementById('modal');
+  const openBtn = document.getElementById('openBtn');
+  const closeBtn = document.getElementById('closeBtn');
+
+  // モーダルを開く
+  openBtn.addEventListener('click', () => {
+    modal.showModal(); // 背景を暗くして表示
+  });
+
+  // モーダルを閉じる
+  closeBtn.addEventListener('click', () => {
+    modal.close();
+  });
+</script>
+</table>                                 <!--</div>-->
 </body>
 </html>
