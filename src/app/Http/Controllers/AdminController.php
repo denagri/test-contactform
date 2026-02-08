@@ -15,7 +15,8 @@ class AdminController extends Controller
       /*$contacts =Contact::all();*/
       $contacts = Contact::with('category')->Paginate(7);
       $categories =Category::all();
-      return view('admin',compact('contacts','categories'));
+      $csvData =Contact::all();
+      return view('admin',compact('contacts','categories','csvData'));
    }
    public function search(Request $request)
    {
@@ -24,14 +25,34 @@ class AdminController extends Controller
       }
       $query = Contact::query();
       $query=$this->getSearchQuery($request,$query);
-
+      $csvData=$query->get();
       $contacts=$query->paginate(7);
       $categories=Category::all();
-      return view('admin',compact('contacts','categories'));
+      return view('admin',compact('contacts','categories','csvData'));
    }
    public function destroy(Request $request)
    {
       Contact::find($request->id)->delete();
       return redirect('/admin');
+   }
+   private function getSearchQuery($request,$query)
+   {
+      if(!empty($request->keyword)){
+         $query->where(function($q)use($request){
+            $q->where('first_name','like','%'.$request->keyword .'%')
+            ->orWhere('last_name','like','%'.$request->keyword.'%')
+            ->orWhere('email','like','%'.$request->keyword.'%');
+         });
+      }
+      if(!empty($request->gender)){
+         $query->where('gender','=',$request->gender);
+      }
+      if(!empty($request->category_id)){
+         $query->where('category_id','=',$request->category_id);
+      }
+      if(!empty($request->date)){
+         $query->whereDate('create_at','=',$request->date);
+      }
+      return $query;
    }
 }
