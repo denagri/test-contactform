@@ -12,7 +12,6 @@ class AdminController extends Controller
 {
    public function index()
    {
-      /*$contacts =Contact::all();*/
       $contacts = Contact::with('category')->Paginate(7);
       $categories =Category::all();
       $csvData =Contact::all();
@@ -54,5 +53,51 @@ class AdminController extends Controller
          $query->whereDate('create_at','=',$request->date);
       }
       return $query;
+   }
+   public function putCsv($csvData){
+      try{
+         //CSV形式で情報をファイルに出力のための準備
+        $csvFileName = '/tmp/' . time() . rand() . '.csv';
+        $fileName = time() . rand() . '.csv';
+        $res = fopen($csvFileName, 'w');
+        if ($res === FALSE) {
+            throw new Exception('ファイルの書き込みに失敗しました。');
+        }
+
+        // 項目名先に出力
+        $header = ["id", "name", "email", "gender","category_id"];
+        fputcsv($res, $header);
+
+        // ループしながら出力
+        foreach($csvData as $dataInfo) {
+            // 文字コード変換。エクセルで開けるようにする
+            mb_convert_variables('SJIS', 'UTF-8', $dataInfo);
+
+            // ファイルに書き出しをする
+            fputcsv($res, $dataInfo);
+        }
+
+        // ファイルを閉じる
+        fclose($res);
+
+        // ダウンロード開始
+
+        // ファイルタイプ（csv）
+        header('Content-Type: application/octet-stream');
+
+        // ファイル名
+        header('Content-Disposition: attachment; filename=' . $fileName); 
+        // ファイルのサイズダウンロードの進捗状況が表示
+        header('Content-Length: ' . filesize($csvFileName)); 
+        header('Content-Transfer-Encoding: binary');
+         // ファイルを出力する
+        readfile($csvFileName);
+
+    } catch(Exception $e) {
+
+        // 例外処理をここに書きます
+        echo $e->getMessage();
+
+    }
    }
 }

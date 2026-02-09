@@ -40,22 +40,3 @@ class CreateNewUser implements CreatesNewUsers
         ]);
     }
 }
-/*public function rules(): array
-{
-    return [
-        'name' => ['required','string'],
-        'email' => ['required', 'string', 'email', 'unique:users'],
-        'password' => $this->passwordRules(),
-    ];
-}
-    public function messages()
-{
-    return [
-        'name.required' => 'お名前を入力してください',
-        'email.required' => 'メールアドレスを入力してください',
-        'email.email' =>'メールアドレスはメール形式で入力してください',
-        'password.required' =>'パスワードを入力してください',
-    ];
-}
-
-}*/

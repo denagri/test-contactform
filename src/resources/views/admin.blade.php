@@ -9,19 +9,19 @@
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
 </head>
 <body>
-   <header class="header">
-       <div class="header__inner">
-           <a class="header__logo">
+    <header class="header">
+        <div class="header__inner">
+            <a class="header__logo">
             FashionablyLate
-           </a>
-           <form class="logout-form" action="/logout" method="post" >
-            @csrf
+            </a>
+            <form class="logout-form" action="/logout" method="post" >
+             @csrf
                 <div class="logout-form__button">
                     <button class="logout-form__button-submit" type="submit">logout</button>
                 </div>
             </form>
-       </div>
-   </header>
+        </div>
+    </header>
     <main>
         <div class="contact">
             <div class="contact_admin">
@@ -30,66 +30,49 @@
                       Admin
                     </a>
                 </div>
-                <div class="contact__form">
-                    <div class="form__group">
-                        <form class="form" action="/search" method="get">
-                        @csrf
-                            <div class="form__group-contact">
-                                <div class="form__input">
-                                    <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" class="textbox" />
-                                </div>
-                            </div>
-                            <div class="form__group-contact">
-                                <div class="form__input">
-                                    <select id="gender" name="gender" class="textbox" >
-                                        <option value="" selected disabled>性別</option>
-                                        <option value="man">男性</option>
-                                        <option value="woman">女性</option>
-                                        <option value="other">その他</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form__group-contact">
-                                <div class="form__input">
-                                    <select id="category_id" name="category_id" class="textbox" >
-                                        <option value="" selected disabled>お問い合わせの種類</option>
-                                        @foreach($categories as $category)
-                                        <option value="{{ $category->id}}">@if(request('category_id')==$category->id)selected @endif
-                                        {{ $category->content }}
-                                        </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form__group-contact">
-                                <div class="form__input">
-                                    <input type="date" name="date" placeholder="年/月/日" class="textbox" />
-                                </div>
-                            </div>
-                            <div class="search-form__button">
-                                <input type="text" name="keyword" value="{{request('keyword') }}">
-                                <button class="search-form__button-submit" type="submit">検索</button>
-                            </div>
-                        </form>
-                        <form class="reset-form" action="/reset" method="get" >
-                            @csrf
-                            <div class="reset-form__button">
-                                <button class="reset-form__button-submit" type="submit">リセット</button>
-                            </div>
+                <form class="form" action="/search" method="get">
+                 @csrf
+                    <div class="form__group-contact">
+                        <div class="form__input">
+                            <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" class="textbox" value="{{request('keyword')}}"/>
+                        </div>
+                    </div>
+                    <div class="form__group-contact">
+                        <select id="gender" name="gender" class="textbox" >
+                            <option value="0" selected disabled>性別</option>
+                            <option value="">全て</option>
+                            <option value="1" @if( request('gender')==1 )selected @endif>男性</option>
+                            <option value="2" @if( request('gender')==2 )selected @endif>女性</option>
+                            <option value="3" @if( request('gender')==3 )selected @endif>その他</option>
+                        </select>
+                    </div>
+                    <div class="form__group-contact">
+                        <select id="category_id" name="category_id" class="textbox" >
+                            <option value="" selected disabled>お問い合わせの種類</option>
+                             @foreach($categories as $category)
+                            <option value="{{ $category->id}}">@if(request('category_id')==$category->id)selected @endif
+                            {{ $category->content }}
+                            </option>
+                             @endforeach
+                        </select>
+                    </div>
+                    <div class="form__group-contact">
+                        <input type="date" name="date" placeholder="年/月/日" class="textbox" value="{{request('date')}}">
+                    </div>
+                    <div class="search-form__button">
+                        <input class="search-form__button-submit" type="submit" value="検索">
+                        <input class="reset-form__button-submit" type="submit" value="リセット" name="reset">
+                    </div>
+                </form>
+                <div class="form--group">
+                    <div class="form__group-item">
+                        <form class="export-form" action="/export" method="post" >
+                         @csrf
+                            <button class="export-form__button-submit" type="submit" action="/export">エクスポート</button>
                         </form>
                     </div>
-                    <div class="form--group">
-                        <div class="form__group-item">
-                            <form class="export-form" action="/export" method="post" >
-                            @csrf
-                                <div class="export-form__button">
-                                    <button class="export-form__button-submit" type="submit" action="/export">エクスポート</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="form__group-jump">
-                            {{ $contacts->links() }}
-                        </div>
+                    <div class="form__group-jump">
+                        {{ $contacts->appends(request()->query())->links('vendor.pagination.custom') }}
                     </div>
                 </div>
                 <table class="admin__table">
@@ -100,7 +83,7 @@
                         <th>お問い合わせの種類</th>
                         <th></th>
                     </tr>
-                @foreach ($contacts as $contact)
+                     @foreach ($contacts as $contact)
                     <tr>
                         <td>{{$contact->last_name}}{{$contact->first_name}}</td>
                         <td>{{$contact->gender_text }}</td>
@@ -108,65 +91,63 @@
                         <td>{{$contact->category_id_text}}</td>
                         <td>
                             <div class="table__group-item">
-                                <!--<form class="table-form" action="" method="post" >-->
                                 <button class="openBtn">詳細</button>
-                                <!--</form>-->
                                 <dialog class ="modal">
                                     <div id="{{$contact->id}}">
                                         <div class="modal-header">
                                             <button class="closeBtn">✕</button>
                                         </div>
+                                        <div class="modal-body">
+                                            <table class="modal_table">
+                                                <tr>
+                                                    <th>お名前</th>
+                                                    <td>{{$contact->last_name}}
+                                                        {{$contact->first_name}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>性別</th>
+                                                    <td>
+                                                        <input type="hidden" value="{{$contact['gender']}}" />
+                                                        <?php
+                                                        if($contact['gender'] =='1'){
+                                                            echo '男性';
+                                                        }elseif($contact['gender'] =='2'){
+                                                            echo '女性';
+                                                        }elseif($contact['gender'] =='3'){
+                                                            echo 'その他';
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>メールアドレス</th>
+                                                    <td>{{$contact->email}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>電話番号</th>
+                                                    <td>{{$contact->tel}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>住所</th>
+                                                    <td>{{$contact->address}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>建物名</th>
+                                                    <td>{{$contact->building}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>お問い合わせの種類</th>
+                                                    <td>{{$contact->category->content}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>お問い合わせ内容</th>
+                                                    <td>{{$contact->detail}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                         <form class="modal__detail-form" action="/delete" method="post">
-                                        @csrf
-                                            <div class="modal-body">
-                                                <table class="modal_table">
-                                                    <tr>
-                                                        <th>お名前</th>
-                                                        <td>{{$contact->last_name}}
-                                                            {{$contact->first_name}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>性別</th>
-                                                        <td>
-                                                            <input type="hidden" value="{{$contact['gender']}}" />
-                                                            <?php
-                                                            if($contact['gender'] =='1'){
-                                                                echo '男性';
-                                                            }elseif($contact['gender'] =='2'){
-                                                                echo '女性';
-                                                            }elseif($contact['gender'] =='3'){
-                                                                echo 'その他';
-                                                            }
-                                                            ?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>メールアドレス</th>
-                                                        <td>{{$contact->email}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>電話番号</th>
-                                                        <td>{{$contact->tel}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>住所</th>
-                                                        <td>{{$contact->address}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>建物名</th>
-                                                        <td>{{$contact->building}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>お問い合わせの種類</th>
-                                                        <td>{{$contact->category->content}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>お問い合わせ内容</th>
-                                                        <td>{{$contact->detail}}</td>
-                                                    </tr>
-                                                </table>
-                                            </div>
+                                         @csrf
                                             <div class="modal-footer justify-content-end">
                                                 <input type="hidden" name="id" value="{{ $contact->id }}">
                                                 <input class="modal-form__delete-btn btn" type="submit" value="削除">
@@ -177,15 +158,13 @@
                             </div>
                         </td>
                     </tr>
-                @endforeach
+                 @endforeach
                 </table>
             </div>
         </div>
     </main>
-<!--<div class="table-form__button">-->
-<!--<button class="table-form__button-submit" type="submit">詳細</button>-->
 
-
+<!--モーダル-->
 <script>
   const modals = document.getElementByClassName('modal');
   const openBtns = document.getElementByClassName('openBtn');
@@ -200,7 +179,8 @@ for (let i = 0; i < modals.length; i++) {
   });
   }
 </script>
-</table>
+
+<!--エクスポート-->
 <script>
     function handleDownload() {
         var bom = new Uint8Array([0xEF, 0xBB, 0xBF]);//文字コードをBOM付きUTF-8に指定
@@ -226,5 +206,25 @@ for (let i = 0; i < modals.length; i++) {
     }
     //ここまでCSV出力＆ダウンロード
 </script>
+
+<!--性別ボタン-->
+<script>
+function searchData() {
+  const category = document.getElementById('gender').value;
+  // valueが空なら「すべてのデータ」を対象に検索
+  if (category === "") {
+    console.log(`全データから「${keyword}」を検索`);
+  } 
+}
+</script>
+<!--ページネーション矢印サイズ-->
+<style>
+  svg.w-5.h-5 {
+    /*paginateメソッドの矢印の大きさ調整のために追加*/
+    width: 30px;
+    height: 30px;
+  }
+</style>
+
 </body>
 </html>

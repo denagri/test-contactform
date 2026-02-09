@@ -9,20 +9,20 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
 </head>
 <body>
-   <header class="header">
-       <div class="header__inner">
-           <a class="header__logo">
+    <header class="header">
+        <div class="header__inner">
+            <a class="header__logo">
             FashionablyLate
-           </a>
-       </div>
-   </header>
-   <main>
-       <div class="contact__title">
-            <a class="contact__form-title" href="/">
-             <h2>Contact</h2>
             </a>
-       </div>
-       <form class="form" action="/confirm" method="post">
+        </div>
+    </header>
+    <main>
+        <div class="contact__title">
+            <a class="contact__form-title" href="/">
+                <h2>Contact</h2>
+            </a>
+        </div>
+        <form class="form" action="/confirm" method="post">
          @csrf
             <div class="contact__form">
                 <div class="form__group">
@@ -36,16 +36,15 @@
                             <input type="text" name="first_name" placeholder="例:太郎" class="textbox" value="{{old('first_name') }}"/>
                         </div>
                         <div class="form__error">
-                        @error('last_name')
+                         @error('last_name')
                          {{ $message }}
-                        @enderror
-                        @error('first_name')
+                         @enderror
+                         @error('first_name')
                          {{ $message }}
-                        @enderror
+                         @enderror
                         </div>
                     </div>
                 </div>
-
                 <div class="form__group">
                     <div class="form__group-title">
                         <span class="form__label--item">性別</span>
@@ -54,16 +53,16 @@
                     <div class="form__group-content">
                         <div class="form__input">
                             <div class="form__input-gender--item">
-                              <input type="radio" id="man" name="gender" value="1" >
-                              <label for="man">男性</label>
+                                <input type="radio" id="man" name="gender" value="1" >
+                                <label for="man">男性</label>
                             </div>
                             <div class="form__input-gender--item">
-                              <input type="radio" id="woman" name="gender" value="2">
-                              <label for="woman">女性</label>
+                                <input type="radio" id="woman" name="gender" value="2">
+                                <label for="woman">女性</label>
                             </div>
                             <div class="form__input-gender--item">
-                              <input type="radio" id="other" name="gender" value="3">
-                              <label for="other">その他</label>
+                                <input type="radio" id="other" name="gender" value="3">
+                                <label for="other">その他</label>
                             </div>
                         </div>
                         <div class="form__error">
@@ -73,7 +72,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form__group">
                     <div class="form__group-title">
                         <span class="form__label--item">メールアドレス</span>
@@ -90,7 +88,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form__group">
                     <div class="form__group-title">
                         <span class="form__label--item">電話番号</span>
@@ -115,7 +112,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form__group">
                     <div class="form__group-title">
                         <span class="form__label--item">住所</span>
@@ -132,7 +128,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form__group">
                     <div class="form__group-title">
                         <span class="form__label--item">建物名</span>
@@ -143,7 +138,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form__group">
                     <div class="form__group-title">
                         <span class="form__label--item">お問い合わせの種類</span>
@@ -153,9 +147,9 @@
                         <div class="form__input">
                             <select id="category_id" name="category_id" class="textbox" >
                                 <option value="" disabled selected>選択してください</option>
-                                @foreach($categories as $category)
+                                 @foreach($categories as $category)
                                 <option value="{{ $category->id}}">{{ $category->content }}</option>
-                                @endforeach
+                                 @endforeach
                             </select>
                         </div>
                         <div class="form__error">
@@ -165,7 +159,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form__group">
                     <div class="form__group-title">
                         <span class="form__label--item">お問い合わせ内容</span>
@@ -182,12 +175,11 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="form__button">
-                   <button class="form__button-submit" type="submit">確認画面</button>
+                    <button class="form__button-submit" type="submit">確認画面</button>
                 </div>
             </div>
-       </form>
-   </main>
+        </form>
+    </main>
 </body>
 </html>

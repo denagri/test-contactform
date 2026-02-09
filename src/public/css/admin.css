@@ -47,9 +47,9 @@ main{
 .contact_admin{
     width: 100%;
 }
-.form__group{
+.form{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .form__group-contact{
     margin-right: 10px;
@@ -61,7 +61,6 @@ main{
     color: #8b7969;
     background-color: #f4f4f4;
     padding: 10px 7px;
-    
 }
 input::placeholder{
     color: #8b7969;
@@ -107,9 +106,6 @@ select option:first-child{
     display: flex;
     justify-content: space-between;
 }
-.export-form__button{
-    width: 100%;
-}
 .export-form__button-submit{
     background-color: #f1ece6;
     color: #8b7969;
@@ -117,11 +113,11 @@ select option:first-child{
     border-radius: 3px;
     cursor: pointer;
     padding: 5px 10px;
+    width: 100%;
 }
 .form__group-jump{
     display: flex;
 }
-/*.jump-form__button-submit*/
 li{
     border: 1px solid #f9f9f9;
     color: #8b7969;
@@ -141,7 +137,6 @@ th{
 }
 
 td{
-    
     color: #8b7969;
     padding: 10px;
     text-align: center;
