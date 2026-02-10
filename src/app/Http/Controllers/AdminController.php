@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Contact;
 use App\Models\Category;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class AdminController extends Controller
 {
@@ -50,11 +51,36 @@ class AdminController extends Controller
          $query->where('category_id','=',$request->category_id);
       }
       if(!empty($request->date)){
-         $query->whereDate('create_at','=',$request->date);
+         $query->whereDate('created_at','=',$request->date);
       }
       return $query;
    }
-   public function putCsv($csvData){
+   public function export(Request $request)
+   {
+      $query=Contact::query();
+      $query=$this->getSearchQuery($request,$query);
+      $csvData=$query->get()->toArray();
+      $csvHeader=[
+         'id','category_id','first_name','last_name','gender','email','tel','address','building','detail','created_at','updated_at'
+      ];
+      $response=new StreamedResponse(function()use($csvHeader,$csvData){
+         $createCsvFile=fopen('php://output','w');
+         mb_convert_variables('SJIS-win','UYF-8',$csvHeader);
+         fputcsv($createCsvFile,$csvHeader);
+         foreach($csvData as $csv){
+            $csv['created_at']=Data::make($csv['created_at'])->setTimezone('Asia/Tokyo')->format('Y/m/d H:i:s');
+            $csv['updated_at']=Date::make($csv['updated_at'])->setTimezone('Asia/Tokyo')->format('Y/m/d H:i:s');
+            fputcsv($createCsvFile,$csv);
+         }
+         fclose($createCsvFile);
+      },200,[
+         'Content-Type'=>'text/csv',
+         'Content-Disposition'=>'attachment;filename="contacts.csv',
+      ]);
+      return $response;
+   }
+
+   /*public function putCsv($csvData){
       try{
          //CSV形式で情報をファイルに出力のための準備
         $csvFileName = '/tmp/' . time() . rand() . '.csv';
@@ -99,5 +125,5 @@ class AdminController extends Controller
         echo $e->getMessage();
 
     }
-   }
+   }*/
 }

@@ -13,11 +13,11 @@ laravel環境構築
 
 # 使用技術(実行環境)
 * php 8.4.14
-* laravel 8.83.8
+* larave8.83.8
+* mysql 8.0.45
 
 # ER図
-![alt text](<スクリーンショット 2026-01-25 163940-1.png>)
-
+![alt text]![alt text](<スクリーンショット 2026-02-11 082601.png>)
 
 # URL
 * お問い合わせフォーム入力ページhttp://localhost/

@@ -30,4 +30,4 @@ Route::post('/logout',function(Request $request){
 Route::post('/delete',[AdminController::class,'destroy']);
 Route::get('/search',[AdminController::class,'search']);
 Route::get('/reset',[AdminController::class,'reset']);
-Route::post('/export',[AdminController::class,'']);
+Route::post('/export',[AdminController::class,'export']);
