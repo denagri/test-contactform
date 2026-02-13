@@ -21,13 +21,13 @@ Route::post('/confirm',[TestContactController::class,'confirm']);
 Route::get('/confirm',[TestContactController::class,'find']);
 Route::post('/contacts',[TestContactController::class,'store']);
 Route::get('/admin',[AdminController::class,'index']);
-Route::post('/logout',function(Request $request){
+/*Route::post('/logout',function(Request $request){
     Auth::logout();
     $request->session()->invalidate();
     $request->session()->regenerateToken();
     return redirect('/');
-})->name('logout');
+})->name('logout');*/
 Route::post('/delete',[AdminController::class,'destroy']);
 Route::get('/search',[AdminController::class,'search']);
-Route::get('/reset',[AdminController::class,'reset']);
+/*exportがpostなのはエクスポートするデータが全てURLに乗ると長すぎてえらいことになるため*/
 Route::post('/export',[AdminController::class,'export']);

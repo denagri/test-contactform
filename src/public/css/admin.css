@@ -27,6 +27,14 @@
     border-radius: 3px;
     padding: 8px;
 }
+.contact{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+.contact_admin{
+    width: 100%;
+}
 .contact__title{
     text-align: center;
 }
@@ -37,16 +45,7 @@
     font-family: Courier;
     font-weight: bold;
 }
-main{
-    background-color: #ffffff;
-}
-.contact{
-    width: 80%;
-    margin: 0 auto;
-}
-.contact_admin{
-    width: 100%;
-}
+
 .form{
     display: flex;
     justify-content: space-between;
@@ -96,14 +95,6 @@ select option:first-child{
     border-radius: 3px;
     border: none;
 }
-.pagination{
-    display: flex;
-}
-.pagination__link:hover {
-    color: #0056b3;
-    background-color: #e9ecef;
-    border-color:#dee2e6;
-}
 .form--group{
     justify-content: space-between;
     display: flex;
@@ -123,8 +114,20 @@ select option:first-child{
     padding: 5px 10px;
     width: 100%;
 }
-.form__group-jump{
+.pagination{
     display: flex;
+}
+.pagination a{
+    text-decoration: none;
+    color: #8b7969;
+}
+.active{
+    color:#fff;
+    background-color:#82756b;
+}
+.pagination a:hover{
+    background-color: #8b7969;
+    color:#fff;
 }
 li{
     border: 1px solid #f9f9f9;
@@ -153,11 +156,34 @@ td{
 .table__group-item{
     margin: 8px;
 }
-.table-form__button-submit{
+.openBtn{
     border: 1px solid #e7e2de;
     color: #e7e2de;
     cursor: pointer;
     border-radius: 3px;
     padding: 5px 10px;
     background-color: #fcfcfc;
+}
+.modal{
+    border-color: #8b7969;
+    width: 60%;
+}
+.modal-header{
+    display: flex;
+    justify-content: flex-end;
+}
+.closeBtn{
+    color:#8b7969;
+    background-color:#fcfcfc;
+    border-color: #8b7969;
+    border-radius: 50%;
+    appearance: none;
+    background-image: none;
+}
+.modal-form__delete-btn{
+    color:#fff;
+    background-color: red;
+    border-color: red;
+    border-radius: 3px;
+    padding: 5px 15px;
 }

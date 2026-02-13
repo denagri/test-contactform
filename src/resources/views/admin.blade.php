@@ -66,14 +66,14 @@
                 </form>
                 <div class="form--group">
                     <div class="form__group-item">
-                        <form class="export-form" action="/export" method="post" >
+                        <!--現在表示している検索条件を引き継いでデータを送信する-->
+                        <form class="export-form" action="{{'/export?'.http_build_query(request()->query())}}" method="post" >
                          @csrf
-                            <button class="export-form__button-submit" type="submit" action="/export">エクスポート</button>
+                            <button class="export-form__button-submit" type="submit">エクスポート</button>
                         </form>
                     </div>
-                    <div class="form__group-jump">
-                        {{ $contacts->appends(request()->query())->links('vendor.pagination.custom') }}
-                    </div>
+                    <!--検索条件はそのままでページネーションリンクを表示する-->
+                    {{ $contacts->appends(request()->query())->links('vendor.pagination.custom') }}
                 </div>
                 <table class="admin__table">
                     <tr>
@@ -148,9 +148,9 @@
                                         </div>
                                         <form class="modal__detail-form" action="/delete" method="post">
                                          @csrf
-                                            <div class="modal-footer justify-content-end">
+                                            <div class="modal-footer-justify-content-end">
                                                 <input type="hidden" name="id" value="{{ $contact->id }}">
-                                                <input class="modal-form__delete-btn btn" type="submit" value="削除">
+                                                <input class="modal-form__delete-btn" type="submit" value="削除">
                                             </div>
                                         </form>
                                     </div>
@@ -166,9 +166,9 @@
 
 <!--モーダル-->
 <script>
-  const modals = document.getElementByClassName('modal');
-  const openBtns = document.getElementByClassName('openBtn');
-  const closeBtns = document.getElementByClassName('closeBtn');
+  const modals = document.getElementsByClassName('modal');
+  const openBtns = document.getElementsByClassName('openBtn');
+  const closeBtns = document.getElementsByClassName('closeBtn');
 
 for (let i = 0; i < modals.length; i++) {
     openBtns[i].addEventListener('click', () => {

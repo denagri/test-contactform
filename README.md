@@ -17,7 +17,7 @@ laravel環境構築
 * mysql 8.0.45
 
 # ER図
-![alt text]![alt text](<スクリーンショット 2026-02-11 082601.png>)
+![alt text](<スクリーンショット 2026-02-11 082601.png>)
 
 # URL
 * お問い合わせフォーム入力ページhttp://localhost/
