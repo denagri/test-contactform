@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestContactController;
 use App\Http\Controllers\AdminController;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +17,12 @@ use Illuminate\Http\Request;
 
 Route::get('/',[TestContactController::class,'index'])->name('home');
 Route::post('/confirm',[TestContactController::class,'confirm']);
-Route::get('/confirm',[TestContactController::class,'find']);
 Route::post('/contacts',[TestContactController::class,'store']);
-Route::get('/admin',[AdminController::class,'index']);
-/*Route::post('/logout',function(Request $request){
-    Auth::logout();
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
-    return redirect('/');
-})->name('logout');*/
-Route::post('/delete',[AdminController::class,'destroy']);
-Route::get('/search',[AdminController::class,'search']);
-/*exportがpostなのはエクスポートするデータが全てURLに乗ると長すぎてえらいことになるため*/
-Route::post('/export',[AdminController::class,'export']);
+/*ログインしないと/adminに入れないようにミドルウェア認証*/
+Route::middleware('auth')->group(function(){
+    Route::get('/admin',[AdminController::class,'index']);
+    Route::post('/delete',[AdminController::class,'destroy']);
+    Route::get('/search',[AdminController::class,'search']);
+    /*exportがpostなのはエクスポートするデータが全てURLに乗ると長すぎてえらいことになるため*/
+    Route::post('/export',[AdminController::class,'export']);
+});

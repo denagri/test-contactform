@@ -24,10 +24,6 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-           ['name.required'=>'お名前を入力してください',
-            'email.required'=>'メールアドレスを入力してください',
-            'email.email'=>'メールアドレスはメール形式で入力してください',
-            'password'=>'パスワードを入力してください',];
         //
     }
 }

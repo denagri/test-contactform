@@ -6,14 +6,22 @@ Dockerビルド
 laravel環境構築
 * docker-compose exec php bash
 * composer install
-* cp .env.example.env, 環境変数を適宜変更
+* cp .env.example.env
+環境変数を追加
+* DB_CONNECTION=mysql
+* DB_HOST=mysql
+* DB_PORT=3306
+* DB_DATABASE=laravel_db
+* DB_USERNAME=laravel_user
+* DB_PASSWORD=laravel_pass
+
 * php artisan key:generate
 * php artisan migrate
 * php artisan db:seed
 
 # 使用技術(実行環境)
 * php 8.4.14
-* larave8.83.8
+* laravel 8.83.8
 * mysql 8.0.45
 
 # ER図

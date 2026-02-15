@@ -141,6 +141,10 @@ li{
     border: 1px solid #f9f9f9;
     width: 100%;
 }
+.admin__table tr td:hover{
+    background-color: #8b7969;
+    color:#fff;
+}
 th{
     color: #ffffff;
     background-color: #82756b;
@@ -175,10 +179,10 @@ td{
 .closeBtn{
     color:#8b7969;
     background-color:#fcfcfc;
-    border-color: #8b7969;
+    border: 1px solid #8b7969 ;
     border-radius: 50%;
-    appearance: none;
-    background-image: none;
+    width: 3vw;
+    height: 3vw;
 }
 .modal-form__delete-btn{
     color:#fff;
