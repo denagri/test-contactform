@@ -74,7 +74,7 @@ class AdminController extends Controller
          $createCsvFile=fopen('php://output','w');
          /*$csvHEADerの中身をUTF-8からSJISに変更*/
          mb_convert_variables('SJIS-win','UTF-8',$csvHeader);
-         /*$createCsvFileで開いたファイルに$csvHEADerを書き込む*/
+         /*$createCsvFileで開いたファイルに$csvHeaderを書き込む*/
          fputcsv($createCsvFile,$csvHeader);
          /*データ全体から1行分のデータを$csvに代入*/
          foreach($csvData as $csv){
@@ -86,7 +86,7 @@ class AdminController extends Controller
          fclose($createCsvFile);
       /*CSVファイルをダウンロードさせる動作を指示
       200はHTTPコードで「正常に処理された」を意味する*/
-         },200,[
+      },200,[
          /*送信するデータがCSV形式*/
          'Content-Type'=>'text/csv',
          /*ダウンロードを強制する部分。attachmentでブラウザ内に表示せずファイルとして保存する。

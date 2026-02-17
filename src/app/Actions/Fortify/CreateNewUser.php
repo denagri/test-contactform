@@ -5,12 +5,12 @@ namespace App\Actions\Fortify;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
+/*use Illuminate\Validation\Rule;*/
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
 class CreateNewUser implements CreatesNewUsers
 {
-    use PasswordValidationRules;
+    /*use PasswordValidationRules;*/
 
     /**
      * Validate and create a newly registered user.
@@ -24,13 +24,13 @@ class CreateNewUser implements CreatesNewUsers
             'email' => [
                 'required',
                 'email',
-                Rule::unique('users'),
+                /*Rule::unique('users'),*/
             ],
-            'password' => $this->passwordRules(),
-        ],['name.required'=>'お名前を入力してください',
+            'password' => /*$this->passwordRules(),*/['required'],
+        /*],['name.required'=>'お名前を入力してください',
            'email.required'=>'メールアドレスを入力してください',
            'email.email'=>'メールアドレスはメール形式で入力してください',
-           'password.required'=>'パスワードを入力してください',
+           'password.required'=>'パスワードを入力してください',*/
         ])->validate();
 
         return User::create([

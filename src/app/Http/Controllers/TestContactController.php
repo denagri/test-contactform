@@ -14,7 +14,7 @@ class TestContactController extends Controller
         $categories =Category::all();
         return view('index',compact('categories'));
     }
-
+    /*指定されたidのデータを取得し、詳細画面を表示する*/
     public function show($id)
     {
         $categories = Category::find($id);
@@ -30,6 +30,7 @@ class TestContactController extends Controller
     public function store(IndexRequest $request)
     {
         if ($request->has('back')) {
+            /*入力したフォームの内容をセッションに一時保存し、前の画面に返却する */
             return redirect('/')->withInput();
         }
         $request['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
